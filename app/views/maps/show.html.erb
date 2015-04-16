@@ -1,0 +1,36 @@
+<%- model_class = Map -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<p>
+  <%= image_tag @map.image.url(:medium) %>
+</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:path) %>:</strong></dt>
+  <dd><%= @map.path %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:area_id) %>:</strong></dt>
+  <dd><%= @map.area_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:image_file_name) %>:</strong></dt>
+  <dd><%= @map.image_file_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:image_content_type) %>:</strong></dt>
+  <dd><%= @map.image_content_type %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:image_file_size) %>:</strong></dt>
+  <dd><%= @map.image_file_size %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:image_updated_at) %>:</strong></dt>
+  <dd><%= @map.image_updated_at %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:mtime) %>:</strong></dt>
+  <dd><%= @map.mtime %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ctime) %>:</strong></dt>
+  <dd><%= @map.ctime %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              maps_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_map_path(@map), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              map_path(@map),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
