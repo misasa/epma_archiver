@@ -11,7 +11,7 @@ set :repo_url, 'git@devel.misasa.okayama-u.ac.jp:orochi/epma_archiver.git'
 # Default deploy_to directory is /var/www/my_app_name
 # set :deploy_to, '/var/www/my_app_name'
 set :deploy_to, '/srv/jxa-8530'
-
+set :relative_url_root, '/jxa-8530'
 # Default value for :scm is :git
 # set :scm, :git
 
@@ -26,7 +26,7 @@ set :deploy_to, '/srv/jxa-8530'
 
 # Default value for :linked_files is []
 # set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
-set :linked_files, %w{config/application.yml config/database.yml config/unicorn/production.rb }
+set :linked_files, %w{config/application.yml config/database.yml config/secrets.yml config/unicorn/production.rb }
 
 # Default value for linked_dirs is []
 # set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
