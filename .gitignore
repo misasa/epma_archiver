@@ -17,3 +17,5 @@
 /tmp
 /vendor/bundler
 /public/system
+config/database.yml
+config/application.yml

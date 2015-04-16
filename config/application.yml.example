@@ -1,0 +1,12 @@
+defaults: &defaults
+  machine_name: JXA-8530
+  sync_path: /backup/feepma/sync/
+
+production:
+  <<: *defaults
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults    

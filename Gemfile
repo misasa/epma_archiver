@@ -33,6 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 gem 'settingslogic'
 gem 'twitter-bootstrap-rails'
+gem 'sprockets', '~> 2.8'
 
 gem 'paperclip'
 group :development, :test do
