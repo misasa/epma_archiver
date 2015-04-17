@@ -23,6 +23,7 @@ set :rbenv_ruby, '2.1.0'
 require 'capistrano/bundler'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
+#require 'capistrano/rails/console'
 #require 'capistrano3/unicorn'
 # require 'capistrano/passenger'
 

@@ -2,6 +2,11 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+<%= search_form_for @q do |f| %>
+  <%= f.label :mtime_gteq %>
+  <%= f.search_field :mtime_gteq %>
+<% end %>
+
 <table class="table table-striped">
   <thead>
     <tr>
