@@ -6,7 +6,7 @@ class AreasController < ApplicationController
   def index
 #    @areas = Area.all
     params[:q] = Hash.new unless params[:q]
- #   params[:q][:s] = 'maps_mtime desc'
+    params[:q][:s] = 'mtime desc'
     if params[:from] && params[:to]
       params[:q][:mtime_gteq] = params[:from]
       params[:q][:mtime_lteq] = params[:to]      
