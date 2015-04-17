@@ -9,12 +9,12 @@ RSpec.describe Area, type: :model do
 			area.maps << map
 		end
 		it {expect(area.process).not_to be_nil }
-		after do
-			p area
-			p map
-			p map.image.url(:tiny)
-			p map.image.path(:tiny)
-			p area.zip.url
-		end
+		# after do
+		# 	p area
+		# 	p map
+		# 	p map.image.url(:tiny)
+		# 	p map.image.path(:tiny)
+		# 	p area.zip.url
+		# end
 	end
 end

@@ -1,5 +1,7 @@
 defaults: &defaults
   machine_name: JXA-8530
+  machine_site: http://database.misasa.okayama-u.ac.jp/
+  machine_prefix: /machine/machines/6/
   sync_path: /backup/feepma/sync/
 
 production:

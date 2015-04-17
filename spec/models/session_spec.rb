@@ -17,9 +17,4 @@ RSpec.describe Session, type: :model do
 		it { expect(Session.at(ng_datetime)).to be_nil }
 	end
 
-	describe ".element_url" do
-		let(:id){ 100 }
-		it { expect(Session.element_url(id).to be_eql("http://example.com/session/100"))}
-	end
-
 end
