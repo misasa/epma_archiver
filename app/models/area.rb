@@ -16,7 +16,7 @@ class Area < ActiveRecord::Base
 				safe_name = "map-#{self.id}"
 				Dir.mkdir(safe_name)
 				Dir.chdir(safe_name) do
-					#FileUtils.cp_r full_path, 'data'
+					FileUtils.cp_r full_path, 'data'
 					Dir.mkdir('raw')
 					Dir.mkdir('tif')
 					Dir.mkdir('jpg')
