@@ -1,3 +1,10 @@
+<p>
+<% if @session_name %>
+This page summarizes quantitative and map analyses of a session (<%= link_to(@session_name, Settings.session_path(@session_id)) %>).
+<% else %>
+This page summarizes quantitative and map analyses.
+<% end %>
+</p>
 <h2>Quantitative analyses</h2>
 <p>
 No data is available.

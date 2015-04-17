@@ -1,5 +1,7 @@
 class TopController < ApplicationController
   def index
+  	@session_name = params[:session_name]
+  	@session_id = params[:session_id]
   	params[:q] = Hash.new unless params[:q]
   	params[:q][:s] = 'mtime desc'
   	if params[:from] && params[:to]

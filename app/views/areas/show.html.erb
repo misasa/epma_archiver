@@ -4,6 +4,8 @@
 </div>
 
 <dl class="dl-horizontal">
+  <dt><strong>Session:</strong></dt>
+  <dd><%= link_to("go", Settings.session_at_path(@area.mtime)) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @area.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:path) %>:</strong></dt>
