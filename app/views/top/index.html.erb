@@ -1,3 +1,8 @@
+<h2>Quantitative analyses</h2>
+<p>
+No data is available.
+</p>
+
 <h2>Map analyses</h2>
 
 <table class="table table-striped">
@@ -16,11 +21,11 @@
       <tr>
         <td><%= link_to area.name, area_path(area) %></td>
         <td><%= link_to(number_to_human_size(area.zip.size), area.zip.url) if area.zip.path %></td>
-    <td><%= area.center_x && area.center_y ? "( #{sprintf("%.1f", area.center_x)}, #{sprintf("%.1f", area.center_y)} )" : '' %></td>
-    <td><%= area.magnification ? sprintf("%.0f", area.magnification) : '' %></td>   
+		<td><%= area.center_x && area.center_y ? "( #{sprintf("%.1f", area.center_x)}, #{sprintf("%.1f", area.center_y)} )" : '' %></td>
+		<td><%= area.magnification ? sprintf("%.0f", area.magnification) : '' %></td>		
         <td><%= area.maps.size %></td>
         <td><%= raw map_line_for(area, :tiny) %></td>
-    </tr>
+	  </tr>
     <% end %>
   </tbody>
 </table>

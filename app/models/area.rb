@@ -16,7 +16,7 @@ class Area < ActiveRecord::Base
 				safe_name = "map-#{self.id}"
 				Dir.mkdir(safe_name)
 				Dir.chdir(safe_name) do
-					FileUtils.cp_r full_path, 'data'
+					#FileUtils.cp_r full_path, 'data'
 					Dir.mkdir('raw')
 					Dir.mkdir('tif')
 					Dir.mkdir('jpg')
@@ -24,7 +24,6 @@ class Area < ActiveRecord::Base
 					maps.each do |map|
 						map_name = File.basename(map.path, ".map")
 						map_path = File.join(full_path, map_name + ".map")
-
 
 						image_path = File.join('raw', map_name + ".raw")
 						cmd = "jxmap-image #{map_path} #{image_path}"
@@ -44,8 +43,8 @@ class Area < ActiveRecord::Base
 							map.image = File.new(image_path)
 						end
 						if File.exists?(info_path)
-							info = File.open(info_path).read
-							puts info
+							info_text = File.open(info_path).read
+							map.update_with_info(info_text)
 						end
 						map.save
 					end
@@ -57,10 +56,6 @@ class Area < ActiveRecord::Base
 					self.zip = File.new(zip_path)
 					self.save
 				end
-				# Find.find(dir) do |file_path|
-				# 	puts file_path
-				# end
-
 			end
 		end
 	end
