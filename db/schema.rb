@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150417064751) do
+ActiveRecord::Schema.define(version: 20150417094108) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "name"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20150417064751) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.float    "magnification"
+    t.datetime "mtime"
   end
 
   create_table "maps", force: :cascade do |t|

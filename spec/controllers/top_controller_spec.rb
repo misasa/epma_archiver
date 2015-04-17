@@ -12,11 +12,13 @@ RSpec.describe TopController, type: :controller do
       get :index, params, valid_session
       expect(assigns(:areas)).to eq([area])
     end
-  	
+
   	context "with from to and existing area" do
 	  	before do
 	  		area
 	  		area.maps << map
+	  		area.mtime = map.mtime
+	  		area.save
 	  		params[:from] = (map.mtime - 10).strftime("%Y-%m-%d %H:%M:%S")
 	  		params[:to] = (map.mtime + 10).strftime("%Y-%m-%d %H:%M:%S")
 	  	end
@@ -30,6 +32,8 @@ RSpec.describe TopController, type: :controller do
 	  	before do
 	  		area
 	  		area.maps << map
+	  		area.mtime = map.mtime
+	  		area.save
 	  		params[:from] = (map.mtime - 10).strftime("%Y-%m-%d %H:%M:%S")
 	  		params[:to] = (map.mtime - 1).strftime("%Y-%m-%d %H:%M:%S")
 	  	end

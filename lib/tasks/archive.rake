@@ -39,6 +39,8 @@ namespace :archive do
 					map = Map.create(:path => map_path, :mtime => path.mtime, :ctime => path.ctime)
 					area.maps << map
 				end
+				area.mtime = map.mtime
+				area.save
 			end
 		end
 	end
