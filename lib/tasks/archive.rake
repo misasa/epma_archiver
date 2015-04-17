@@ -1,6 +1,24 @@
 require "find"
 require "pathname"
 namespace :archive do
+	desc "Process map analysis with AREA_ID"
+	task :process_area => :environment do
+		area_id = ENV["AREA_ID"]
+		if area_id
+			area = Area.find(area_id)
+			area.process
+		end
+	end
+
+	desc "Process all map analyses"
+	task :process_all_areas => :environment do
+		Area.all.each do |area|
+			puts "Area #{area.id} processing..."
+			area.process
+		end
+	end
+
+
 	desc "Parse sync_path"
 	task :parse => :environment do
 		sync_path = Settings.sync_path
