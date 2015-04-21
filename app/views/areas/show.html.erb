@@ -11,9 +11,7 @@
   <dt><strong><%= model_class.human_attribute_name(:path) %>:</strong></dt>
   <dd><%= @area.path %></dd>
   <dt>file-size</dt>
-  <dd><%= link_to(number_to_human_size(@area.zip.size), @area.zip.url) if @area.zip.path %></dd>
-  <dt>url</dt>
-  <dd><%= asset_path(@area.zip.url) if @area.zip.path %></dd>
+  <dd><%= link_to(number_to_human_size(@area.zip.size), asset_path(@area.zip.url)) if @area.zip.path %></dd>
 
   <dt>center</dt>  
   <dd><%= @area.center_x && @area.center_y ? "( #{sprintf("%.1f", @area.center_x)}, #{sprintf("%.1f", @area.center_y)} )" : '' %></dd>
