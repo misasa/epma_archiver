@@ -27,7 +27,7 @@ No data is available.
     <% @areas.each do |area| %>
       <tr>
         <td><%= link_to area.name, area_path(area) %></td>
-        <td><%= link_to(number_to_human_size(area.zip.size), area.zip.url) if area.zip.path %></td>
+        <td><%= link_to(number_to_human_size(area.zip.size), asset_path(area.zip.url)) if area.zip.path %></td>
 		<td><%= area.center_x && area.center_y ? "( #{sprintf("%.1f", area.center_x)}, #{sprintf("%.1f", area.center_y)} )" : '' %></td>
 		<td><%= area.magnification ? sprintf("%.0f", area.magnification) : '' %></td>		
         <td><%= area.maps.size %></td>
