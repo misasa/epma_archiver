@@ -14,13 +14,21 @@ class Map < ActiveRecord::Base
 			data = Regexp.last_match
 			title = data[1]
 			if title
-				/\s(.*)_(.*)_(.*)_(.*)$/ =~ title
-				data = Regexp.last_match
-				h[:area_name] = $~.pre_match
-				h[:element_name] = data[1]
-				h[:channel] = data[2]
-				h[:crystal_name] = data[3]
-				h[:x_ray_name] = data[4]
+				if /\s(\S*)/ =~ title
+					data = Regexp.last_match
+					h[:area_name] = $~.pre_match
+					signal = data[1]
+					h[:signal] = signal
+				end
+				if /(.*)_(.*)_(.*)_(.*)$/ =~ signal
+					data = Regexp.last_match
+					#h[:area_name] = $~.pre_match
+					h[:element_name] = data[1]
+					h[:channel] = data[2]
+					h[:crystal_name] = data[3]
+					h[:x_ray_name] = data[4]
+				end
+
 			end
 		end
 
@@ -51,6 +59,7 @@ class Map < ActiveRecord::Base
 
 	def update_with_info(info_text)
 		info = self.class.parse_info(info_text)
+		self.signal = info[:signal]
 		self.element_name = info[:element_name]
 		self.channel = info[:channel]
 		self.crystal_name = info[:crystal_name]

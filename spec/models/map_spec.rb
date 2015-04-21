@@ -44,9 +44,29 @@ RSpec.describe Map, type: :model do
 				subject
 			end
 			it { expect(map.element_name).to be_eql('Fe') }
+			it { expect(map.signal).to be_eql('Fe_CH4_LIFL_Ka') }
 			it { expect(area.name).to be_eql('ref-mag-kam5') }
 
 		end
+
+		context "with compo info" do
+			let(:info){ <<-EOF
+	$CM_TITLE ref-mag-kam5 COMPO
+	$CM_MAG 133
+	$CM_FULL_SIZE 1800 1600
+	$CM_STAGE_POS 16.5407 19.9220 11.0355 0 0 0
+	$$SM_SCAN_ROTATION 0.00
+	EOF
+				}
+			before do
+				area.maps << map
+				subject
+			end
+			it { expect(map.signal).to be_eql('COMPO') }
+			it { expect(area.name).to be_eql('ref-mag-kam5') }
+
+		end
+
 
 		context "with valid info without area" do
 			let(:info){ <<-EOF

@@ -10,7 +10,7 @@ module ApplicationHelper
       	if image_url && File.exist?(image_path)
         #	a << link_to(image_tag(image_url), map_path(map))
         	tag = link_to(image_tag(image_url), map_path(map))
-        	tag += content_tag(:div, map.element_name , :class => "caption")   
+        	tag += content_tag(:div, map.element_name || map.signal , :class => "caption")   
         	#tag = content_tag(:div, tag, :class => "thumbnail")
         	tag = content_tag(:div, tag, :class => "col-lg-1")
         	a << tag
@@ -30,7 +30,7 @@ module ApplicationHelper
       	if image_url && File.exist?(image_path)
         #	a << link_to(image_tag(image_url), map_path(map))
         	tag = link_to(image_tag(image_url), map_path(map))
-        	tag += content_tag(:div, map.element_name , :class => "caption")   
+        	tag += content_tag(:div, map.signal , :class => "caption")   
         	tag = content_tag(:div, tag, :class => "thumbnail")
         	tag = content_tag(:div, tag, :class => "col-lg-2")
         	a << tag
