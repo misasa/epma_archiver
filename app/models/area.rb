@@ -32,10 +32,12 @@ class Area < ActiveRecord::Base
 						}
 						info = YAML.load(info_str)
 						out_name = map_name
-						if info && info["element_name"]
-							out_name = info["element_name"]
-						elsif info["signal"]
-							out_name = info["signal"]
+						if info
+							if info["element_name"]
+								out_name = info["element_name"]
+							elsif info["signal"]
+								out_name = info["signal"]
+							end
 						end
 
 						image_path = File.join('rpl', out_name + ".raw")
