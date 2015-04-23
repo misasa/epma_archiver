@@ -13,8 +13,12 @@ namespace :archive do
 	desc "Process all map analyses"
 	task :process_all_areas => :environment do
 		Area.all.each do |area|
-			puts "Area #{area.id} processing..."
-			area.process
+			begin
+				puts "Area #{area.id} processing..."
+				area.process
+			rescue => ex
+				puts ex
+			end
 		end
 	end
 

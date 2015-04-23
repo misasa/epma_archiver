@@ -16,17 +16,24 @@ class Area < ActiveRecord::Base
 				safe_name = "map-#{self.id}"
 				Dir.mkdir(safe_name)
 				Dir.chdir(safe_name) do
-					FileUtils.cp_r full_path, Settings.machine_name
+					Dir.mkdir(Settings.machine_name)
 					Dir.mkdir('rpl')
 					Dir.mkdir('tif')
 					Dir.mkdir('jpg')
-
+					map_files = Dir.glob(File.join(full_path, "*.map"))
+					map_z_files = Dir.glob(File.join(full_path, "*.map.Z"))
+					cnd_files = Dir.glob(File.join(full_path, "*.cnd"))
+					
+					FileUtils.cp(map_files, Settings.machine_name) unless map_files.empty?
+					FileUtils.cp(map_z_files, Settings.machine_name) unless map_z_files.empty?
+					FileUtils.cp(cnd_files, Settings.machine_name) unless cnd_files.empty?
 					maps.each do |map|
+
 						map_name = File.basename(map.path, ".map")
 						map_path = File.join(full_path, map_name + ".map")
 
 						info_str = nil
-						cmd = "jxmap-info #{map_path}"
+						cmd = "jxmap-info '#{map_path}'"
 						IO.popen(cmd, "r"){|io|
 							info_str = io.read
 						}
@@ -41,17 +48,17 @@ class Area < ActiveRecord::Base
 						end
 
 						image_path = File.join('rpl', out_name + ".raw")
-						cmd = "jxmap-image #{map_path} #{image_path}"
+						cmd = "jxmap-image '#{map_path}' '#{image_path}'"
 						system(cmd)
 
 						image_path = File.join('tif', out_name + ".tif")
-						cmd = "jxmap-image #{map_path} #{image_path}"
+						cmd = "jxmap-image '#{map_path}' '#{image_path}'"
 						system(cmd)
 
 
 						image_path = File.join('jpg', out_name + ".jpg")
 						info_path = File.join('jpg', out_name + ".txt")
-						cmd = "jxmap-image #{map_path} #{image_path}"
+						cmd = "jxmap-image '#{map_path}' '#{image_path}'"
 						system(cmd)
 
 						if File.exists?(image_path)
