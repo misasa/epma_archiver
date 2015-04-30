@@ -4,9 +4,10 @@ namespace :archive do
 	desc "Process map analysis with AREA_ID"
 	task :process_area => :environment do
 		area_id = ENV["AREA_ID"]
-		if area_id
+		area_ids = area_id.split(',')
+		area_ids.each do |area_id|
 			area = Area.find(area_id)
-			area.process
+			area.process if area
 		end
 	end
 
