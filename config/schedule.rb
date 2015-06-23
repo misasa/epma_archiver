@@ -18,7 +18,7 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-set :output, {:error => 'log/error.log', :standard => 'log/crontab.log'}
+set :output, {:error => 'log/crontab_error.log', :standard => 'log/crontab.log'}
 set :environment, :production
 
 every '*/5 * * * *' do
