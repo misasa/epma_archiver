@@ -21,6 +21,6 @@
 set :output, {:error => 'log/crontab_error.log', :standard => 'log/crontab.log'}
 set :environment, :production
 
-every '55 * * * *' do
+every '5 * * * *' do
 	rake "archive:parse"
 end
