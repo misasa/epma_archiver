@@ -50,5 +50,11 @@ namespace :archive do
 				area.save
 			end
 		end
+
+		Area.all.each do |area|
+			p area.name
+			p area.zip_file_size
+		end		
 	end
+
 end
