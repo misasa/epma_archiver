@@ -18,9 +18,9 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-set :output, 'crontab.log'
+set :output, {:error => 'error.log', :standard => 'crontab.log'}
 set :environment, :production
 
 every '*/5 * * * *' do
-	command "echo 'you can use raw cron syntax too'"
+	rake "backup"
 end
