@@ -52,10 +52,16 @@ namespace :archive do
 		end
 
 		Area.all.each do |area|
-			p area.name
-			p area.zip_file_size			
+			p area
 			if area.zip_file_size && area.zip_file_size > 0
-				p "processing..."
+				p "already processed!"
+			else
+				begin
+					p "processing ..."
+					#area.process
+				rescue => ex
+					puts ex
+				end
 			end
 		end		
 	end
