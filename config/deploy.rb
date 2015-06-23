@@ -38,6 +38,8 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets public/system}
 # Default value for keep_releases is 5
 set :keep_releases, 5
 
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}"}
+
 namespace :deploy do
 
   after :restart, :clear_cache do
