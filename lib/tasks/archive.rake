@@ -58,7 +58,7 @@ namespace :archive do
 			else
 				begin
 					p "processing ..."
-					#area.process
+					area.process
 				rescue => ex
 					puts ex
 				end
