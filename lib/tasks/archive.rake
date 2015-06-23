@@ -53,7 +53,10 @@ namespace :archive do
 
 		Area.all.each do |area|
 			p area.name
-			p area.zip_file_size
+			p area.zip_file_size			
+			if area.zip_file_size && area.zip_file_size > 0
+				p "processing..."
+			end
 		end		
 	end
 
