@@ -26,6 +26,7 @@ namespace :archive do
 
 	desc "Parse sync_path"
 	task :parse => :environment do
+		p "archive:parse starting..."
 		sync_path = Settings.sync_path
 		base_path = Pathname.new(Settings.sync_path)
 		Find.find(sync_path) do |file_path|
@@ -52,10 +53,10 @@ namespace :archive do
 		end
 
 		Area.all.each do |area|
-			p area
 			if area.zip_file_size && area.zip_file_size > 0
-				p "already processed!"
+				#p "already processed!"
 			else
+				p area
 				begin
 					p "processing ..."
 					area.process
@@ -64,6 +65,7 @@ namespace :archive do
 				end
 			end
 		end		
+		p "archive:parse end..."
 	end
 
 end
