@@ -37,11 +37,13 @@ namespace :archive do
 				area = Area.find_by_path(area_path)
 				unless area
 					area = Area.create(:path => area_path)
+					p area
 				end
 
 				map = Map.find_by_path(map_path)
 				unless map
 					map = Map.create(:path => map_path, :mtime => path.mtime, :ctime => path.ctime)
+					p map
 					area.maps << map
 				end
 				area.mtime = map.mtime
