@@ -2,9 +2,9 @@
 lock '3.4.0'
 
 set :application, 'epma_archiver'
-set :repo_url, 'git@devel.misasa.okayama-u.ac.jp:orochi/epma_archiver.git'
+set :repo_url, 'git@devel.misasa.okayama-u.ac.jp:rails/epma_archiver.git'
 
-
+set :bundle_binstubs, nil
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
@@ -12,6 +12,8 @@ set :repo_url, 'git@devel.misasa.okayama-u.ac.jp:orochi/epma_archiver.git'
 # set :deploy_to, '/var/www/my_app_name'
 set :deploy_to, '/srv/jxa-8530'
 set :relative_url_root, '/jxa-8530'
+#set :deploy_to, '/srv/jxa-8800'
+#set :relative_url_root, '/jxa-8800'
 # Default value for :scm is :git
 # set :scm, :git
 
@@ -30,7 +32,8 @@ set :linked_files, %w{config/application.yml config/database.yml config/secrets.
 
 # Default value for linked_dirs is []
 # set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets public/system}
+#set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets public/system}
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets public/system}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }

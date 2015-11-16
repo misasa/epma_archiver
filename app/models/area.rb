@@ -1,7 +1,7 @@
 require 'tmpdir'
 require 'find'
 class Area < ActiveRecord::Base
-	has_many :maps
+	has_many :maps, dependent: :destroy
 	has_attached_file :zip
 	validates_attachment :zip, content_type: { content_type: ["application/zip"]}
 
