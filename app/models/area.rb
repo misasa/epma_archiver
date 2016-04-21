@@ -2,12 +2,39 @@ require 'tmpdir'
 require 'find'
 class Area < ActiveRecord::Base
 	has_many :maps, dependent: :destroy
-	has_attached_file :zip
+	has_attached_file :zip, {:preserve_files => false }
 	validates_attachment :zip, content_type: { content_type: ["application/zip"]}
 
 
 	def full_path
 		File.join(Settings.sync_path, path)
+	end
+
+	def prepare_maps
+		sync_path = Settings.sync_path
+		base_path = Pathname.new(Settings.sync_path)
+
+		map_files = Dir.glob(File.join(full_path, "*.map"))
+		map_files.each do |map_file|
+			path = Pathname.new(map_file)
+			relative_path = path.relative_path_from(base_path)
+			map_path = relative_path.to_s
+			if map = maps.find_by_path(map_path)
+				map.mtime = path.mtime
+				map.ctime = path.ctime
+			else
+				maps << Map.create(:path => map_path, :mtime => path.mtime, :ctime => path.ctime)
+			end
+		end
+	end
+
+	def latest_map
+		maps.order("mtime desc").first
+	end
+
+	def maps_mtime
+		return unless latest_map
+		latest_map.mtime
 	end
 
 	def process

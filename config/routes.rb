@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+
   get 'top/index'
 
   resources :maps
-  resources :areas
+  resources :areas do
+    member do
+      post 'perform'
+      post 'job'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

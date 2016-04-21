@@ -1,5 +1,5 @@
 class AreasController < ApplicationController
-  before_action :set_area, only: [:show, :edit, :update, :destroy]
+  before_action :set_area, only: [:show, :edit, :update, :destroy, :perform, :job]
 
   # GET /areas
   # GET /areas.json
@@ -20,6 +20,8 @@ class AreasController < ApplicationController
   # GET /areas/1.json
   def show
   end
+
+
 
   # GET /areas/new
   def new
@@ -43,6 +45,20 @@ class AreasController < ApplicationController
         format.html { render :new }
         format.json { render json: @area.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  # POST /areas/1/job
+  def job
+    path = @area.path
+    @area.destroy
+    
+    @area = Area.create(:path => path)
+    @area.prepare_maps
+    AreaWorker.perform_async(@area.id)
+    respond_to do |format|
+      format.html { redirect_to @area, notice: 'Processing ...' }
+      format.json { head :no_content }
     end
   end
 
