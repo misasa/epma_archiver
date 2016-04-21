@@ -1,6 +1,6 @@
 <%- model_class = Map -%>
 <div class="page-header">
-  <h1><%= "#{@map.area.name} #{@map.element_name}" %></h1>
+  <h1><%= "#{@map.area.try(:name)} #{@map.element_name}" %></h1>
 </div>
 
 <dl class="dl-horizontal">

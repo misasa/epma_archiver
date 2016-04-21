@@ -1,10 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe "maps/edit", type: :view do
+  let(:current) { Time.now }  
   before(:each) do
     @map = assign(:map, Map.create!(
       :path => "MyString",
-      :area_id => 1
+      :area_id => 1,
+      :mtime => current,
+      :ctime => current
     ))
   end
 
