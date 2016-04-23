@@ -1,8 +1,8 @@
 <%- model_class = Area -%>
 <div class="page-header">
-  <h1>Map Analysis</h1>
+  <h1><%=@area.path %></h1>
 </div>
-
+<%= top_message %>
 <dl class="dl-horizontal">
   <dt><strong>Session:</strong></dt>
   <dd><%= link_to("go", Settings.session_at_path(@area.mtime)) %></dd>
@@ -29,6 +29,6 @@
 <%= link_to t('.back', :default => t("helpers.links.back")),
               root_path, :class => 'btn btn-default'  %>
 
-<%= link_to t('.process', :default => t("helpers.links.process")),job_area_path(@area),:method => 'post',:data => { :confirm => "Are you sure you want to process #{@area.name}?" },:class => 'btn btn-warning' %>
+<%#= link_to t('.process', :default => t("helpers.links.process")),job_area_path(@area),:method => 'post',:data => { :confirm => "Are you sure you want to process #{@area.name}?" },:class => 'btn btn-warning' %>
 
-<%= link_to t('.destroy', :default => t("helpers.links.destroy")),area_path(@area),:method => 'delete',:data => { :confirm => "Are you sure you want to delete #{@area.name}?" },:class => 'btn btn-danger' %>
+<%#= link_to t('.destroy', :default => t("helpers.links.destroy")),area_path(@area),:method => 'delete',:data => { :confirm => "Are you sure you want to delete #{@area.name}?" },:class => 'btn btn-danger' %>

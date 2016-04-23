@@ -62,6 +62,7 @@ group :development, :test do
   gem 'capistrano-rails-console'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
+  gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
 #  gem 'capistrano3-unicorn'
 
 end
