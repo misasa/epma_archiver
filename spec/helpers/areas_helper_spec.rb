@@ -33,7 +33,7 @@ RSpec.describe AreasHelper, type: :helper do
 
 	    context "without zip path" do
 		    it "shows message" do
-		      expect(helper.top_message).to eq("Processing ...")
+		      expect(helper.top_message).to match(/^A map analysis is under process/)
 		    end
 	    end
 	    context "with zip path" do
@@ -47,7 +47,7 @@ RSpec.describe AreasHelper, type: :helper do
 			    }
 			    let(:name){ "ref-mag-ken3" } 
 			    it "shows message" do
-			      expect(helper.top_message).to match(/^This page summarizes a map analysis on an area/)
+			      expect(helper.top_message).to match(/^A map analysis on an area/)
 			    end	    	
 		    end
 

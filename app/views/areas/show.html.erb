@@ -4,8 +4,6 @@
 </div>
 <%#= top_message %>
 <dl class="dl-horizontal">
-  <dt><strong>Session:</strong></dt>
-  <dd><%= link_to("go", Settings.session_at_path(@area.mtime)) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @area.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:path) %>:</strong></dt>
@@ -20,6 +18,8 @@
 
   <dt>magnification</dt>  
   <dd><%= @area.magnification ? sprintf("%.0f", @area.magnification) : '' %></dd>
+  <dt><strong>Session:</strong></dt>
+  <dd><%= link_to("go to machine", Settings.session_at_path(@area.mtime)) %></dd>
 </dl>
 
 <div class="row">
