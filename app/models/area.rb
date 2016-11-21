@@ -5,7 +5,7 @@ class Area < ActiveRecord::Base
 	has_attached_file :zip, {:preserve_files => false }
 	validates_attachment :zip, content_type: { content_type: ["application/zip"]}
 
-    paginates_per 5  # 1ページあたり2項目表示
+#    paginates_per 5  # 1ページあたり2項目表示
 
 	def full_path
 		File.join(Settings.sync_path, path)
