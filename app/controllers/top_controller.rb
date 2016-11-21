@@ -9,7 +9,7 @@ class TopController < ApplicationController
   		params[:q][:mtime_lteq] = params[:to]  		
   	end
     @q = Area.search(params[:q])
-    @areas = @q.result(distinct: true)
+    @areas = @q.result(distinct: true).page(params[:page])
 
   end
 end
