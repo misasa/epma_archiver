@@ -1,8 +1,7 @@
 # Rails project -- epma_archiver
 
-Serve as EMPA-archiver for JXA-8530F to organize maps.  It converts
-raw data of JXA-8530F to maps and the data can be seen and be
-downloaded from a web page.    
+Serve as EMPA-archiver for JXA-8530F to organize maps.  Convert
+raw data of JXA-8530F into a map that is displayed on and downloaded from web page.    
 
 # Dependency
 
