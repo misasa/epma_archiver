@@ -9,11 +9,6 @@ and
 [service -- JXA-8800](http://archive.misasa.okayama-u.ac.jp/JXA-8800)
 that use this project.
 
-See
-[EMPA-archiver for JXA-8800](http://gitlab.misasa.okayama-u.ac.jp/rails/jxa)
-that refer to this package.
-
-
 # Dependency
 
 ## [python package -- jxmap](https://gitlab.misasa.okayama-u.ac.jp/pythonpackage/jxmap)
