@@ -7,7 +7,7 @@ See
 [service -- JXA-8530F](http://archive.misasa.okayama-u.ac.jp/JXA-8530F)
 and
 [service -- JXA-8800](http://archive.misasa.okayama-u.ac.jp/JXA-8800)
-that use this project.
+that are the applications of this project.
 
 # Dependency
 
