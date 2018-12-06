@@ -1,7 +1,9 @@
 # rails project -- epma_archiver
 
-Serve as EMPA-archiver for JXA-8530F to organize maps.  Convert
-raw data of JXA-8530F into a map and the map is displayed on and downloaded from the web page.    
+Export maps obtained by EPMA.  The maps are shown by web pages.
+The maps are converted from raw JEOL data.
+Although target device of this project is JEOL JXA-8530F, the project
+can handle datasets obtained by JEOL JXA-8800.
 
 This project took over [rails project -- jxa](https://gitlab.misasa.okayama-u.ac.jp/rails/jxa) from 2012-12.
 
