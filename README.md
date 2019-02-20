@@ -14,3 +14,7 @@ that is the applications of this project.
 # Dependency
 
 ## [python package -- jxmap](https://gitlab.misasa.okayama-u.ac.jp/pythonpackage/jxmap)
+
+# Application
+
+- [web app -- EPMA archiver](https://archive.misasa.okayama-u.ac.jp/JXA-8530F)
