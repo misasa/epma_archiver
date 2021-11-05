@@ -1,8 +1,8 @@
 defaults: &defaults
-  machine_name: JXA-8530
-  machine_site: http://database.misasa.okayama-u.ac.jp/
-  machine_prefix: /machine/machines/6/
-  sync_path: /backup/feepma/sync/
+  machine_name: "<%= ENV['MACHINE_NAME'] || 'JXA-8530F' %>"
+  machine_site: "<%=ENV['MACHINE_SITE'] || 'http://database.misasa.okayama-u.ac.jp/' %>"
+  machine_prefix: "<%= ENV['MACHINE_PREFIX'] || '/machine/machines/6/' %>"
+  sync_path: "<%= ENV['SYNC_PATH'] || '/backup/feepma/sync/' %>"
 
 production:
   <<: *defaults
