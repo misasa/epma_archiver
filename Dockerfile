@@ -5,8 +5,13 @@ RUN apt-get update \
 && apt-get install -y python-pip \
   python-dev \
   liblapack-dev \
+  libjpeg-dev \
+  libpng-dev \
+  zlib1g-dev \
   postgresql-client \  
   gfortran
+RUN ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so.62.1.0 /usr/lib/libjpeg.so
+RUN ln -s /usr/lib/x86_64-linux-gnu/libz.so /usr/lib/libz.so
 WORKDIR /usr/local
 RUN git clone https://gitlab.misasa.okayama-u.ac.jp/pythonpackage/jxmap.git
 RUN pip install future
@@ -18,10 +23,6 @@ RUN useradd -m --home-dir /app epma
 USER epma
 WORKDIR /app
 COPY --chown=epma:epma Gemfile Gemfile.lock /app/
-
-#WORKDIR /app
-#COPY Gemfile /app/Gemfile
-#COPY Gemfile.lock /app/Gemfile.lock
 RUN bundle config set --local path 'vendor/bundle'
 RUN mkdir /app/vendor
 COPY bundle.tar.gz /app/vendor
