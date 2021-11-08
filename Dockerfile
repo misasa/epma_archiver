@@ -8,7 +8,9 @@ RUN apt-get update \
   libjpeg-dev \
   libpng-dev \
   zlib1g-dev \
-  postgresql-client \  
+  postgresql-client \
+  zip \
+  unzip \
   gfortran
 RUN ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so.62.1.0 /usr/lib/libjpeg.so
 RUN ln -s /usr/lib/x86_64-linux-gnu/libz.so /usr/lib/libz.so
