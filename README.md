@@ -8,13 +8,13 @@ can handle datasets obtained by JEOL JXA-8800.
 This project took over [rails project -- jxa](https://gitlab.misasa.okayama-u.ac.jp/rails/jxa) from 2012-12.
 
 See
-[web app -- EPMA archiver](http://archive.misasa.okayama-u.ac.jp/JXA-8530F)
+[web app -- EPMA archiver](http://database.misasa.okayama-u.ac.jp/JXA-8530F)
 that is the applications of this project.
 
 # Dependency
 
-## [python package -- jxmap](https://gitlab.misasa.okayama-u.ac.jp/pythonpackage/jxmap)
+## [python package -- jxmap](https://github.com/misasa/jxmap)
 
 # Application
 
-- [web app -- EPMA archiver](https://archive.misasa.okayama-u.ac.jp/JXA-8530F)
+- [web app -- EPMA archiver](https://database.misasa.okayama-u.ac.jp/JXA-8530F)
