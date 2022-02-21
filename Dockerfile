@@ -15,7 +15,7 @@ RUN apt-get update \
 RUN ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so.62.1.0 /usr/lib/libjpeg.so
 RUN ln -s /usr/lib/x86_64-linux-gnu/libz.so /usr/lib/libz.so
 WORKDIR /usr/local
-RUN git clone https://gitlab.misasa.okayama-u.ac.jp/pythonpackage/jxmap.git
+RUN git clone https://github.com/misasa/jxmap.git
 RUN pip install future
 RUN pip install numpy==1.6.2
 RUN pip install -r ./jxmap/requirements.txt
